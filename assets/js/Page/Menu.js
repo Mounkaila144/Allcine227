@@ -21,7 +21,7 @@ export default function Menu(){
     const [product, setProduct] = useState([]);
     const [pagecount, setpagecount] = useState([]);
 
-    const url = `allcine227.com/api/pubs.json?`
+    const url = `http://allcine227.com/api/pubs.json?`
     const getData = async () => {
         axios
             .get(url)
