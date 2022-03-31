@@ -19,7 +19,7 @@ import {orange} from "@mui/material/colors";
 function Panier() {
     const auth = useAuthUser()
     const [c, setC] = useState(0);
-    const url = `http://allcine227.com/api/commandes`
+    const url = `https://allcine227.com/api/commandes`
     const token = localStorage.getItem('token')
     const headers = {
         'authorization': `Bearer ${token}`,
