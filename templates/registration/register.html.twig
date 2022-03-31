@@ -1,0 +1,48 @@
+{% extends 'userl.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+    <h1 style="color: white">Creation d'une compte</h1>
+    <div class="md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                {{ form_start(registrationForm) }}
+                <div class="row">
+                    <div class="form-group md-6">
+                        {{ form_row(registrationForm.email) }}
+                    </div>
+                    <div class="form-group md-3">
+                        {{ form_row(registrationForm.plainPassword, {
+                            label: 'Password'
+                        }) }}
+                    </div>
+                    <div class="form-group md-3">
+                        {{ form_row(registrationForm.nom) }}
+                    </div>
+                    <div class="form-group md-3">
+                        {{ form_row(registrationForm.prenom) }}
+                    </div>
+                    <div class="form-group md-3">
+                        {{ form_row(registrationForm.adresse) }}
+                    </div>
+                    <div class="form-group md-3">
+                        {{ form_row(registrationForm.username) }}
+                    </div>
+                    <div class="form-group md-3">
+                        {{ form_row(registrationForm.agreeTerms) }}
+                    </div>
+                </div>
+                <div id="detailsMap"></div>
+                <div class="row">
+                    <button type="submit" class="btn btn-primary me-2">Creé le compte</button>
+                    {{ form_end(registrationForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
