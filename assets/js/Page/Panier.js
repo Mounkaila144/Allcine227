@@ -38,9 +38,7 @@ function Panier() {
             .then((res) => {
                 if (res.status === 201) {
                     emptyCart()
-                    alert("Votre panier a bien ete envoyer")
                 } else {
-                    alert("Votre panier n'a pas ete envoyer")
                 }
             })
     }
@@ -64,7 +62,9 @@ function Panier() {
         removeItem,
         cartTotal,
     } = useCart();
-    if (isEmpty) return <p style={"color:white"}>Your cart is empty</p>;
+    if (isEmpty) return  <Box component="div" sx={{overflow: 'auto', color: orange[900], fontSize: 22, marginBottom:2,marginTop:2}}>
+        Votre panier est vide
+    </Box>;
     return (
         <Box bgcolor={"white"}>
             <Grid container spacing={{xs: 1, md: 1}} columns={{xs: 12, sm: 12, md: 12}} alignContent={"center"}

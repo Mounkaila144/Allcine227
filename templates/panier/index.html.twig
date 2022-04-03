@@ -5,7 +5,8 @@
 {% block body %}
     <h1>Commande index</h1>
     {% for commande in commandes %}
-        <table class="table table-bordered table-responsive">
+        <div class="table-responsive">
+        <table class="table">
         <thead>
         <tr>
             <th>Client</th>
@@ -16,7 +17,7 @@
         <tbody>
         <tr>
             <td>{{ commande.user }}</td>
-            <td>{{commande.panier.cartTotal }} CFA</td>
+            <td>{{ commande.panier.cartTotal }} CFA</td>
             <td>
                 <a href="{{ path('app_panier_show', {'id': commande.id}) }}">show</a>
             </td>
@@ -28,6 +29,6 @@
     {% endfor %}
     </tbody>
     </table>
-
+    </div>
     <a href="{{ path('app_panier_new') }}">Create new</a>
 {% endblock %}
