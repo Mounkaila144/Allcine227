@@ -154,9 +154,9 @@ export default function HeaderDesing(props) {
                     </NestedList>
 
                     <NestedList name={"Materiel"}>
-                        <NestedBtn setOpen={setOpen} name={"Original"} link={"original"}/>
-                        <NestedBtn setOpen={setOpen} name={"Moyenne"} link={"moyenne"}/>
-                        <NestedBtn setOpen={setOpen} name={"Moins chere"} link={"moins"}/>
+                        <NestedBtn setOpen={setOpen} name={"Original"} link={"materiel/original"}/>
+                        <NestedBtn setOpen={setOpen} name={"Moyenne"} link={"materiel/moyenne"}/>
+                        <NestedBtn setOpen={setOpen} name={"Moins chere"} link={"materiel/moins"}/>
                     </NestedList>
 
 

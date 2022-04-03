@@ -24,6 +24,10 @@ export default function HeaderPhone() {
         navigate(`Menu`)
         window.location.reload()
     }
+function register() {
+        navigate(`/register`)
+        window.location.reload()
+    }
 
     return (<HeaderDesing
         logo={"ALL-CINE"}
@@ -59,17 +63,6 @@ export default function HeaderPhone() {
                 name3={"Moins chere"} lien3={"materiel/moins"}
                 name4={"Moins chere"} lien4={"film/genre/action"}
             />
-            <Button
-                variant="contained"
-                sx={{
-                    my: 2, color: 'white', display: 'block', backgroundColor: pink[900], marginLeft: 2
-                }}
-                onClick={() => navigate(`/react/menu`)}
-
-            >
-                auth
-            </Button>
-
         </>}
         search={auth() ?
 
@@ -100,7 +93,7 @@ export default function HeaderPhone() {
                     sx={{
                         my: 2, color: 'white', display: 'block', backgroundColor: pink[900], marginLeft: 2
                     }}
-                    onClick={handleClick}
+                    onClick={register}
 
                 >
                     Inscription

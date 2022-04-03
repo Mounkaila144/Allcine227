@@ -64,7 +64,7 @@ function Panier() {
         removeItem,
         cartTotal,
     } = useCart();
-    if (isEmpty) return <p>Your cart is empty</p>;
+    if (isEmpty) return <p style={"color:white"}>Your cart is empty</p>;
     return (
         <Box bgcolor={"white"}>
             <Grid container spacing={{xs: 1, md: 1}} columns={{xs: 12, sm: 12, md: 12}} alignContent={"center"}
