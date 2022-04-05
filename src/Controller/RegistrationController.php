@@ -53,7 +53,7 @@ class RegistrationController extends AbstractController
             );
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('main');
+            return $this->redirect('https://Allcine227.com/react/menu/');
         }
 
         return $this->render('registration/register.html.twig', [
