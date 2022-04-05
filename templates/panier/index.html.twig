@@ -3,23 +3,30 @@
 {% block title %}Commande index{% endblock %}
 
 {% block body %}
-    <h1>Commande index</h1>
+    <h1>Liste des commande</h1>
     {% for commande in commandes %}
         <div class="table-responsive">
-        <table class="table">
+        <table class="table table-bordered">
         <thead>
         <tr>
-            <th>Client</th>
+            <th>Envoyez par </th>
             <th>prix Total</th>
-            <th>actions</th>
+            <th>Contenu du panier</th>
+            <th></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td>{{ commande.user }}</td>
+            <td>
+                <a href="{{ path('admin_client_show2', {'id': commande.user}) }}"><button type="submit" class="btn btn-success me-2">{{ commande.user.nom }} {{ commande.user.prenom }}</button></a>
+            </td>
             <td>{{ commande.panier.cartTotal }} CFA</td>
             <td>
-                <a href="{{ path('app_panier_show', {'id': commande.id}) }}">show</a>
+                <a href="{{ path('app_panier_show', {'id': commande.id}) }}"><button class="btn btn-primary me-2">Panier</button></a>
+            </td>
+            <td>
+                {{ include('panier/_delete_form.html.twig') }}
             </td>
         </tr>
     {% else %}
@@ -30,5 +37,4 @@
     </tbody>
     </table>
     </div>
-    <a href="{{ path('app_panier_new') }}">Create new</a>
 {% endblock %}

@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('admin/client',name:'admin_')]
+#[Route('admin/client', name: 'admin_')]
 class ClientController extends AbstractController
 {
     #[Route('/', name: 'client_index', methods: ['GET'])]
@@ -21,7 +21,8 @@ class ClientController extends AbstractController
             'clients' => $clientRepository->findAll(),
         ]);
     }
-   #[Route('/localisation', name: 'client_localisation', methods: ['GET'])]
+
+    #[Route('/localisation', name: 'client_localisation', methods: ['GET'])]
     public function localisation(UserRepository $clientRepository): Response
     {
         return $this->render('admin/client/localisation.html.twig', [
@@ -57,6 +58,14 @@ class ClientController extends AbstractController
         ]);
     }
 
+    #[Route('/panier/{id}', name: 'client_show2', methods: ['GET'])]
+    public function show2(User $client): Response
+    {
+        return $this->render('panier/client.html.twig', [
+            'client' => $client,
+        ]);
+    }
+
     #[Route('/{id}/edit', name: 'client_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, User $client, EntityManagerInterface $entityManager): Response
     {
@@ -78,7 +87,7 @@ class ClientController extends AbstractController
     #[Route('/{id}', name: 'client_delete', methods: ['POST'])]
     public function delete(Request $request, User $client, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$client->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $client->getId(), $request->request->get('_token'))) {
             $entityManager->remove($client);
             $entityManager->flush();
         }

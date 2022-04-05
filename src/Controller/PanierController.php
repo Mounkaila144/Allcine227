@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Commande;
+use App\Entity\User;
 use App\Form\Commande1Type;
 use App\Repository\CommandeRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -17,6 +18,7 @@ class PanierController extends AbstractController
     #[Route('/', name: 'app_panier_index', methods: ['GET'])]
     public function index(CommandeRepository $commandeRepository): Response
     {
+
         $result=$commandeRepository->findAll();
         return $this->render('panier/index.html.twig', [
             'commandes' => $commandeRepository->findAll(),
@@ -44,10 +46,11 @@ class PanierController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_panier_show', methods: ['GET'])]
-    public function show(Commande $commande): Response
+    public function show(Commande $commande,User $client): Response
     {
         return $this->render('panier/show.html.twig', [
             'commande' => $commande,
+            'client' => $client,
         ]);
     }
 

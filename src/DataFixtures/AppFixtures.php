@@ -14,8 +14,8 @@ class AppFixtures extends Fixture
     {
         $faker=Factory::create("fr_FR");
         for ($i=0;$i<=10;$i++){
-        $article = new Article();
-        $article
+            $article = new Article();
+            $article
                 ->setNom($faker->userName)
                 ->setPrisAchat($faker->numberBetween(3000,500))
                 ->setPrice($faker->numberBetween(3000,500))
@@ -24,21 +24,22 @@ class AppFixtures extends Fixture
                 ->setQuantiteRestant($faker->numberBetween(10,100))
                 ->setImageName("img-20200827-wa0036-6228dc345c657757454691.jpg")
 
-        ;
-        $manager->persist($article);
+            ;
+            $manager->persist($article);
 
-        $user=new User();
-        $user->setNom($faker->name)
-            ->setUsername($faker->name)
-            ->setAdresse($faker->address)
-            ->setEmail($faker->email)
-            ->setIsVerified(true)
-            ->setPassword("90145781")
-            ->setLon($faker->latitude(2.13,2.1309))
-            ->setLat($faker->longitude(13.55,13.5547))
-            ->setPrenom($faker->lastName);
-        $manager->persist($user);
-    }
+            $user=new User();
+            $user->setNom($faker->name)
+                ->setUsername($faker->name)
+                ->setAdresse($faker->address)
+                ->setTelephone($faker->phoneNumber)
+                ->setEmail($faker->email)
+                ->setIsVerified($faker->boolean)
+                ->setPassword("90145781")
+                ->setLon($faker->latitude(2.13,2.1309))
+                ->setLat($faker->longitude(13.55,13.5547))
+                ->setPrenom($faker->lastName);
+            $manager->persist($user);
+        }
 
 
 
