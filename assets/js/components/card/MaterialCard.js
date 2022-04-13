@@ -63,7 +63,7 @@ export default function MaterialCard({products}) {
                     variant="contained"
                     sx={{
                         marginTop: 1,
-                        backgroundColor:inCart(products.id) ?"#1b5e20":"#006064",
+                        backgroundColor:inCart(products.id) ?"#1b5e20": pink[900],
                     }}
                     onClick={() => {
                         setC(c + 1)
@@ -84,7 +84,7 @@ export default function MaterialCard({products}) {
                     }}
                 >
                     <AddShoppingCartIcon
-                        sx={{color: cyan[500]}}
+                        sx={{color: pink[500]}}
                     />{inCart(products.id)?<DoneIcon/>: "Ajouter" }
                 </Button>
 

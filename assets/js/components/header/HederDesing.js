@@ -1,4 +1,4 @@
-import {grey} from "@mui/material/colors";
+import {grey, pink} from "@mui/material/colors";
 import * as React from 'react';
 import {styled, useTheme} from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -27,6 +27,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Btnderoulan from "../Btnderoulan";
 import NestedList from "../BtnSidebar";
 import NestedBtn from "../NestedBtn";
+import {useIsAuthenticated, useSignOut} from "react-auth-kit";
 
 const drawerWidth = 240;
 
@@ -66,6 +67,8 @@ const DrawerHeader = styled('div')(({theme}) => ({
 }));
 
 export default function HeaderDesing(props) {
+    const auth = useIsAuthenticated()
+    const signOut = useSignOut()
     const [anchorEl, setAnchorEl] = React.useState(null);
     const opene = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -91,6 +94,20 @@ export default function HeaderDesing(props) {
         setOpen(false);
     };
 
+    const menu = () => {
+        navigate(`/react/menu `)
+        setOpen(false);
+    };
+    const login = () => {
+        navigate(`/react/login `)
+        setOpen(false);
+    };
+
+    const deconexion = () => {
+        signOut()
+        setOpen(false);
+    };
+
     return (
         <Box sx={{display: 'flex'}}>
             <AppBar position="fixed" open={open} sx={{
@@ -104,9 +121,9 @@ export default function HeaderDesing(props) {
                     >
                         <MenuIcon/>
                     </IconButton>
-                    <Typography variant="h6" noWrap component="div" sx={{display: {xs: 'none', md: 'flex'}}}>
+                    <Box sx={{display: {xs: 'none', md: 'flex'}}}>
                         {props.logo}
-                    </Typography>
+                    </Box>
                     <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
                         {props.btnflexsm}
 
@@ -133,13 +150,22 @@ export default function HeaderDesing(props) {
                 open={open}
             >
                 <DrawerHeader>
-                    <IconButton onClick={handleDrawerClose}>
+                    <IconButton sx={{color:'white'}} onClick={handleDrawerClose}>
                         {theme.direction === 'ltr' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}
                     </IconButton>
                 </DrawerHeader>
                 <Divider/>
+                <Button
+                    variant="contained"
+                    sx={{
+                        my: 2, color: 'white', display: 'block', backgroundColor: pink[900]
+                    }}
+                    onClick={menu}
+
+                >
+                    Tarifs
+                </Button>
                 <List>
-                    <NestedBtn name={"Menu"} link={"top"}/>
                     <NestedList name={"Film"}>
                         <NestedBtn setOpen={setOpen} name={"Populair"} link={"film/popular"}/>
                         <NestedBtn setOpen={setOpen} name={"Nouveauté"} link={"film/new"}/>
@@ -161,6 +187,27 @@ export default function HeaderDesing(props) {
 
 
                 </List>
+                {auth() ?
+                <Button
+                    variant="contained"
+                    sx={{
+                        my: 2, color: 'white', display: 'block', backgroundColor: pink[900]
+                    }}
+                    onClick={deconexion}
+
+                >
+                        Deconnexion
+                </Button>:
+                    <Button
+                        variant="contained"
+                        sx={{
+                            my: 2, color: 'white', display: 'block', backgroundColor: pink[900],width:110
+                        }}
+                        onClick={login}
+
+                    >
+                        Connexion
+                    </Button>}
             </Drawer>
 
         </Box>

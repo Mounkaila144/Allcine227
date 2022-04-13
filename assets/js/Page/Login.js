@@ -37,7 +37,8 @@ export default function Login() {
     const isAuthenticated = useIsAuthenticated()
     let navigate = useNavigate();
     const [aalert,setAlert]=useState(false)
-    const [c,setC]=useState("")
+    const [time,setTime]=useState(true)
+    const [c,setC]=useState(0)
 
     const signIn = useSignIn()
     const [formData, setFormData] = React.useState({email: '', password: ''})
@@ -51,6 +52,7 @@ export default function Login() {
         e.preventDefault()
         axios.post('https://allcine227.com/api/login_check', formData)
             .then((res) => {
+                console.log(res)
                 if (res.status === 200) {
 
                     localStorage.setItem('token', res.data.token)
@@ -59,23 +61,32 @@ export default function Login() {
                         expiresIn: 60,
                         tokenType: "Bearer",
                         authState: res.config.data
-                    })) {
+                    }))
+                    {
                         navigate('/react')
-                    } else {
+                    }
+                    else {
 
                     }
                 }
                 else{
 
                 }
-            })
+            }).catch(
+            function () {
+                setAlert(true)
+                setTimeout(()=>{setAlert(false)},5000);
+            }
+        )
+
+
 
     }
     return (
         <Box sx={{bgcolor:'white', borderRadius:5}}>
             {aalert ?<Alert variant="filled" severity="error">
                Votre Mots de passe ou votre Adresse email est incorrect
-                </Alert>:null}
+            </Alert>:null}
         <ThemeProvider theme={theme} >
             <Container component="main" maxWidth="md">
                 <CssBaseline />

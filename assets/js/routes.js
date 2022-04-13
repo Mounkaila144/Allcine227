@@ -63,7 +63,7 @@ const RouteApp = () => {
             <BrowserRouter>
                 <Routes>
 
-                    <Route path="react/" element={<App/>}>
+                    <Route path="react" element={<App/>}>
                         <Route path="login" element={<Login token={token} setToken={setToken}/>}/>
                         <Route path="menu" element={<Menu/>}/>
                         <Route path={"panier"}

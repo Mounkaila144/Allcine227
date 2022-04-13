@@ -4,7 +4,7 @@ import axios from "axios";
 import Button from "@mui/material/Button";
 import {useAuthUser} from "react-auth-kit";
 import Card from "@mui/material/Card";
-import {Badge, Grid, Stack} from "@mui/material";
+import {Alert, AlertTitle, Badge, Grid, Stack} from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
@@ -18,6 +18,7 @@ import {orange} from "@mui/material/colors";
 
 function Panier() {
     const auth = useAuthUser()
+    const [aalert,setAlert]=useState(false)
     const [c, setC] = useState(0);
     const url = `https://allcine227.com/api/commandes`
     const token = localStorage.getItem('token')
@@ -38,8 +39,14 @@ function Panier() {
             .then((res) => {
                 if (res.status === 201) {
                     emptyCart()
+                    setAlert(true)
+                    setTimeout(()=>{setAlert(false)},5000);
                 } else {
+
                 }
+            }).catch(
+            function () {
+
             })
     }
     const nb = (type) => {
@@ -63,6 +70,10 @@ function Panier() {
         cartTotal,
     } = useCart();
     if (isEmpty) return  <Box component="div" sx={{overflow: 'auto', color: orange[900], fontSize: 22, marginBottom:2,marginTop:2}}>
+        {aalert ?<Alert variant="filled" severity="success">
+            <AlertTitle>Panier Envoyez avez succès</AlertTitle>
+            Vous recevrais votre commande le plus vite possible
+        </Alert>:null}
         Votre panier est vide
     </Box>;
     return (

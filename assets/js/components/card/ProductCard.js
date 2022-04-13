@@ -110,7 +110,7 @@ export default function ProductCard({products, type}) {
                         variant="contained"
                         sx={{
                             marginTop: 1,
-                            backgroundColor:inCart(products.id) ?"#1b5e20":"#006064",
+                            backgroundColor:inCart(products.id) ?"#1b5e20": pink[900],
                         }}
                         onClick={() => {
                             if (auth()) {
