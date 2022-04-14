@@ -63,7 +63,7 @@ export default function Login() {
                         authState: res.config.data
                     }))
                     {
-                        navigate('')
+                        navigate('react/menu')
                     }
                     else {
 
