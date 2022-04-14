@@ -29,7 +29,7 @@ export default function HeaderPhone() {
     }
 
     function register() {
-        navigate(`/react/register`)
+        navigate(`/register`)
         window.location.reload()
     }
 
@@ -48,24 +48,24 @@ export default function HeaderPhone() {
             </Button>
             <Btnderoulan
                 name={"Film"}
-                name1={"populair"} lien1={"/react/film/popular"}
-                name2={"nouveauté"} lien2={"/react/film/new"}
-                name3={"plus vues"} lien3={"/react/film/top"}
-                name4={"Trier par genre"} lien4={"/react/filmlist"}
+                name1={"populair"} lien1={"/film/popular"}
+                name2={"nouveauté"} lien2={"/film/new"}
+                name3={"plus vues"} lien3={"/film/top"}
+                name4={"Trier par genre"} lien4={"/filmlist"}
             />
             <Btnderoulan
                 name={"Serie"}
-                name1={"populair"} lien1={"/react/serie/popular"}
-                name2={"nouveauté"} lien2={"/react/serie/new"}
-                name3={"plus vues"} lien3={"/react/serie/top"}
-                name4={"Trier par genre"} lien4={"/react/serielist"}
+                name1={"populair"} lien1={"/serie/popular"}
+                name2={"nouveauté"} lien2={"/serie/new"}
+                name3={"plus vues"} lien3={"/serie/top"}
+                name4={"Trier par genre"} lien4={"/serielist"}
             />
             <Btnderoulan
                 name={"Materiel"}
-                name1={"original"} lien1={"/react/materiel/original"}
-                name2={"Moyenne"} lien2={"/react/materiel/moyenne"}
-                name3={"Moins chere"} lien3={"/react/materiel/moins"}
-                name4={"Moins chere"} lien4={"/react/film/action"}
+                name1={"original"} lien1={"/materiel/original"}
+                name2={"Moyenne"} lien2={"/materiel/moyenne"}
+                name3={"Moins chere"} lien3={"/materiel/moins"}
+                name4={"Moins chere"} lien4={"/film/action"}
             />
         </>}
         search={

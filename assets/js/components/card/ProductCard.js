@@ -65,7 +65,7 @@ export default function ProductCard({products, type}) {
             borderRadius: '4%',
             boxShadow: 3
         }}>
-            <Link to={type === "movie" ? `/react/film/${products.id}` : `/react/serie/${products.id}`}>
+            <Link to={type === "movie" ? `/film/${products.id}` : `/serie/${products.id}`}>
                 <CardMedia sx={{
                     maxWidth: 170,
                     borderRadius: '4%',
@@ -78,7 +78,7 @@ export default function ProductCard({products, type}) {
             <CardContent
                 sx={{}}
             >
-                <Link to={type === "movie" ? `/react/film/${products.id}` : `/react/serie/${products.id}`}>
+                <Link to={type === "movie" ? `/film/${products.id}` : `/serie/${products.id}`}>
                     <Box component="div" sx={{overflow: 'auto', color: 'white'}}>
                     </Box>
                 </Link>
@@ -98,7 +98,7 @@ export default function ProductCard({products, type}) {
                                     'type':'film'
                                 })
                         } else {
-                            navigate(`/react/login`)
+                            navigate(`/login`)
                         }
                     }}
                 >
@@ -114,9 +114,9 @@ export default function ProductCard({products, type}) {
                         }}
                         onClick={() => {
                             if (auth()) {
-                                navigate( `/react/serie/${products.id}`)
+                                navigate( `/serie/${products.id}`)
                             } else {
-                                navigate(`/react//login`)
+                                navigate(`/react/login`)
                             }
                         }}
                     >

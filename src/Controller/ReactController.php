@@ -19,7 +19,7 @@ class ReactController extends AbstractController
         ]);
     }
     /**
-     * @Route("/react/materiel/{reactRouting}", name="materiel", defaults={"reactRouting": null})
+     * @Route("materiel/{reactRouting}", name="materiel", defaults={"reactRouting": null})
      */
     public function materiel(): Response
     {
@@ -29,7 +29,7 @@ class ReactController extends AbstractController
     }
 
     /**
-     * @Route("react/film/{reactRouting}", name="film", defaults={"reactRouting": null})
+     * @Route("film/{reactRouting}", name="film", defaults={"reactRouting": null})
      */
     public function film(): Response
     {
@@ -38,7 +38,7 @@ class ReactController extends AbstractController
         ]);
     }
     /**
-     * @Route("react/serie/{reactRouting}", name="serie", defaults={"reactRouting": null})
+     * @Route("serie/{reactRouting}", name="serie", defaults={"reactRouting": null})
      */
     public function serie(): Response
     {
