@@ -29,7 +29,7 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'cochez la case.',
+                        'message' => "j'accepte tout les reglement de Alline227",
                     ]),
                 ],
             ])

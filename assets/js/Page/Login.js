@@ -47,6 +47,11 @@ export default function Login() {
         navigate('/register')
         location.reload()
     }
+    const reset=()=>{
+        navigate('/reset-password')
+        location.reload()
+    }
+
     const onSubmit = (e) => {
    setC(c+1)
         e.preventDefault()
@@ -140,7 +145,7 @@ export default function Login() {
                         </Button>
                         <Grid container>
                             <Grid item xs>
-                                <Link href="#" variant="body2">
+                                <Link href="#" onClick={reset}variant="body2">
                                     Mots de passe oublier?
                                 </Link>
                             </Grid>
