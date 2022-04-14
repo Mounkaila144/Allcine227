@@ -62,6 +62,39 @@ const RouteApp = () => {
     return (
             <BrowserRouter>
                 <Routes>
+                    <Route path="react/film" >
+                        <Route path={":id"} element={<Detail types={"movie"}/>}/>
+                        <Route path={"genrelist"} element={<GenreFilmIndex/>}/>
+                        <Route path={"recherche"} element={<Recherche types={"movie"}/>}/>
+                        <Route path={"popular"}  element={<Film types={"popular"} type={"movie"}/>}/>
+                        <Route path={"top"} element={<Film types={"top_rated"} type={"movie"}/>}/>
+                        <Route path={"new"} element={<Film types={"upcoming"} type={"movie"}/>}/>
+                        {
+                            k.map((genres) => (
+                                    <Route key={genres.id} path={genres.name.toLowerCase().replace(" ","")}  element={<GenreFilm genre={genres.id} type={"movie"}/>}/>
+                                )
+                            )
+                        }
+                    </Route>
+                    <Route path="react/serie">
+                        <Route path={"recherche"} element={<Recherche types={"tv"}/>}/>
+                        <Route path={":id"} element={<Detail types={"tv"}/>}/>
+                        <Route path={"popular"} element={<Film types={"popular"} type={"tv"}/>}/>
+                        <Route path={"top"} element={<Film types={"top_rated"} type={"tv"}/>}/>
+                        <Route path={"new"} element={<Film types={"on_the_air"} type={"tv"}/>}/>
+                        <Route path={"genrelist"} element={<GenreSerieIndex/>}/>
+                        {
+                            k2.map((genres) => (
+                                    <Route key={genres.id} path={genres.name.toLowerCase().replace(" ","")}  element={<GenreFilm type={"tv"} genre={genres.id}/>}/>
+                                )
+                            )
+                        }
+                    </Route>
+                    <Route path="react/materiel">
+                        <Route path={"original"} element={<Original/>}/>
+                        <Route path={":id"} element={<DetailMateriel/>}/>
+
+                    </Route>
 
                     <Route path="react" element={<App/>}>
                         <Route path="login" element={<Login token={token} setToken={setToken}/>}/>
@@ -72,41 +105,6 @@ const RouteApp = () => {
                                        <Panier token={token} setToken={setToken}/>
                                    </RequireAuth>
                                }/>
-
-
-                        <Route path="film" >
-                            <Route path={":id"} element={<Detail types={"movie"}/>}/>
-                            <Route path={"genrelist"} element={<GenreFilmIndex/>}/>
-                            <Route path={"recherche"} element={<Recherche types={"movie"}/>}/>
-                            <Route path={"popular"}  element={<Film types={"popular"} type={"movie"}/>}/>
-                            <Route path={"top"} element={<Film types={"top_rated"} type={"movie"}/>}/>
-                            <Route path={"new"} element={<Film types={"upcoming"} type={"movie"}/>}/>
-                            {
-                                k.map((genres) => (
-                                        <Route key={genres.id} path={"genre/"+genres.name.toLowerCase().replace(" ","")}  element={<GenreFilm genre={genres.id} type={"movie"}/>}/>
-                                    )
-                                )
-                            }
-                        </Route>
-                        <Route path="serie">
-                            <Route path={"recherche"} element={<Recherche types={"tv"}/>}/>
-                            <Route path={":id"} element={<Detail types={"tv"}/>}/>
-                            <Route path={"popular"} element={<Film types={"popular"} type={"tv"}/>}/>
-                            <Route path={"top"} element={<Film types={"top_rated"} type={"tv"}/>}/>
-                            <Route path={"new"} element={<Film types={"on_the_air"} type={"tv"}/>}/>
-                            <Route path={"genrelist"} element={<GenreSerieIndex/>}/>
-                            {
-                                k2.map((genres) => (
-                                        <Route key={genres.id} path={"genre/"+genres.name.toLowerCase().replace(" ","")}  element={<GenreFilm type={"tv"} genre={genres.id}/>}/>
-                                    )
-                                )
-                            }
-                        </Route>
-                        <Route path="materiel">
-                            <Route path={"original"} element={<Original/>}/>
-                            <Route path={":id"} element={<DetailMateriel/>}/>
-
-                        </Route>
 
                         <Route
                             path="react/*"

@@ -19,20 +19,33 @@ class ReactController extends AbstractController
         ]);
     }
     /**
-     * @Route("/apii/articles", name="users")
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     * @Route("/react/materiel/{reactRouting}", name="materiel", defaults={"reactRouting": null})
      */
-    public function getUsers(ArticleRepository $articleRepository)
+    public function materiel(): Response
     {
-        $article =$articleRepository->findAll();
+        return $this->render('react/index.html.twig', [
 
-        $response = new Response();
-
-        $response->headers->set('Content-Type', 'application/json');
-        $response->headers->set('Access-Control-Allow-Origin', '*');
-
-        $response->setContent(json_encode($article));
-
-        return $response;
+        ]);
     }
+
+    /**
+     * @Route("react/film/{reactRouting}", name="film", defaults={"reactRouting": null})
+     */
+    public function film(): Response
+    {
+        return $this->render('react/index.html.twig', [
+
+        ]);
+    }
+    /**
+     * @Route("react/serie/{reactRouting}", name="serie", defaults={"reactRouting": null})
+     */
+    public function serie(): Response
+    {
+        return $this->render('react/index.html.twig', [
+
+        ]);
+    }
+
+
 }

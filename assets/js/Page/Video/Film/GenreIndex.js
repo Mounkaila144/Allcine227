@@ -31,7 +31,7 @@ const GenreFilmIndex = () => {
     let navigate = useNavigate();
 
     function handleClick() {
-        navigate(`film/genre/action`)
+        navigate(`film/action`)
     }
 
     return (
@@ -47,7 +47,7 @@ const GenreFilmIndex = () => {
                         marginLeft: 2
                     }}
                     onClick={() => {
-                        navigate(`/react/film/genre/${genres.path.toLowerCase().replace(" ", "")}`)
+                        navigate(`/react/film/${genres.path.toLowerCase().replace(" ", "")}`)
                     }}
                 >
                     {genres.name}
