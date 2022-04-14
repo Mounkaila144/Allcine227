@@ -81,7 +81,7 @@ bgcolor:"grey.900"
                                 removeItem(products.id)
                             }
                         } else {
-                            navigate(`/react/login`)
+                            navigate(`/login`)
                         }
                     }}
                 >

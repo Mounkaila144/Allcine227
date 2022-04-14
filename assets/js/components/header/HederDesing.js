@@ -129,7 +129,7 @@ export default function HeaderDesing(props) {
 
 
                     </Box>
-                        {props.search}
+                    {props.search}
                 </Toolbar>
             </AppBar>
             <Drawer
@@ -188,16 +188,16 @@ export default function HeaderDesing(props) {
 
                 </List>
                 {auth() ?
-                <Button
-                    variant="contained"
-                    sx={{
-                        my: 2, color: 'white', display: 'block', backgroundColor: pink[900]
-                    }}
-                    onClick={deconexion}
+                    <Button
+                        variant="contained"
+                        sx={{
+                            my: 2, color: 'white', display: 'block', backgroundColor: pink[900]
+                        }}
+                        onClick={deconexion}
 
-                >
+                    >
                         Deconnexion
-                </Button>:
+                    </Button>:
                     <Button
                         variant="contained"
                         sx={{

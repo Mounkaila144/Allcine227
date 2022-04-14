@@ -34,7 +34,7 @@ const Buttondetail = ({genres,product}) => {
             removeItem(genres.id)
         }
     } else {
-        navigate(`/react/login`)
+        navigate(`/login`)
     }
     return (
                 <Button

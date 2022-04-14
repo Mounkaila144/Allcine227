@@ -84,28 +84,28 @@ export default function ProductCard({products, type}) {
                 </Link>
 
                 {type === "movie" ? <Button
-                        variant="contained"
-                        sx={{
-                            marginTop: 1,
-                            backgroundColor:inCart(products.id) ?"#1b5e20": pink[900],
-                        }}
-                        onClick={() => {
-                            if (auth()) {
+                    variant="contained"
+                    sx={{
+                        marginTop: 1,
+                        backgroundColor:inCart(products.id) ?"#1b5e20": pink[900]
+                    }}
+                    onClick={() => {
+                        if (auth()) {
                                 inCart(products.id) ? removeItem(products.id) : addItem({
                                     'nom': products.title,
                                     'price': 200,
                                     'id': products.id,
                                     'type':'film'
                                 })
-                            } else {
-                                navigate(`/react/login`)
-                            }
-                        }}
-                    >
-                        <AddShoppingCartIcon
-                            sx={{color: pink[500]}}
-                        />{inCart(products.id)?<DoneIcon/>: "Ajouter" }
-                    </Button>:
+                        } else {
+                            navigate(`/react/login`)
+                        }
+                    }}
+                >
+                    <AddShoppingCartIcon
+                        sx={{color: pink[500]}}
+                    />{inCart(products.id)?<DoneIcon/>: "Ajouter" }
+                </Button>:
                     <Button
                         variant="contained"
                         sx={{

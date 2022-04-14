@@ -36,7 +36,7 @@ export default function MaterialCard({products}) {
             maxWidth: 170,
             borderRadius: '4%',
         }}>
-            <Link to={ `/react/materiel/${products.id}`}
+            <Link to={ `/materiel/${products.id}`}
                   key={`${products.id}`}>
             <CardMedia sx={{
                 maxWidth: 170,
@@ -79,7 +79,7 @@ export default function MaterialCard({products}) {
                                 removeItem(products.id)
                             }
                         } else {
-                            navigate(`/react/login`)
+                            navigate(`/login`)
                         }
                     }}
                 >

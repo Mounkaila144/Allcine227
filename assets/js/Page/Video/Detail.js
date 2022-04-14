@@ -138,7 +138,7 @@ const Detail = ({types}) => {
                                                             'type': 'serie'
                                                         })
                                                 } else {
-                                                    navigate(`/react/login`)
+                                                    navigate(`/login`)
                                                 }
                                             }}
                                         >
@@ -207,7 +207,7 @@ const Detail = ({types}) => {
                                                             'type': 'serie'
                                                         })
                                                 } else {
-                                                    navigate(`/react/login`)
+                                                    navigate(`/login`)
                                                 }
                                             }}
                                         >

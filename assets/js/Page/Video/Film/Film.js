@@ -85,10 +85,10 @@ initial.current=true
 
     function handleClick() {
         if (type === "movie") {
-            navigate(`/react/film/recherche`)
+            navigate(`/film/recherche`)
 
         } else {
-            navigate(`/react/serie/recherche`)
+            navigate(`/serie/recherche`)
         }
     }
 

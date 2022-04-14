@@ -82,7 +82,7 @@ const Film = ({types}) => {
                 }}>
                     {
                         product.map((products) => (
-                                <Link to={types === "movie" ?`/react/film/${products.id}`:`/react/serie/${products.id}`} key={`${products.id}`}>
+                                <Link to={types === "movie" ?`/film/${products.id}`:`/serie/${products.id}`} key={`${products.id}`}>
                                     <ProductCard sx={{boxShadow: 6,}}
                                                  title={types === "movie" ? products.title : products.name}
                                                  img={`https://image.tmdb.org/t/p/w500${products.poster_path}`}/>

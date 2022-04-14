@@ -27,7 +27,7 @@ const GenreSerieIndex = () => {
 
     function handleClick()
     {
-        navigate(`film/action`)
+        navigate(`film/genre/action`)
     }
 
     return (
@@ -42,7 +42,7 @@ const GenreSerieIndex = () => {
                         marginLeft: 2
                     }}
                     onClick={() => {
-                        navigate(`/react/serie/${genres.path.toLowerCase().replace(" ", "")}`)
+                        navigate(`/serie/genre/${genres.path.toLowerCase().replace(" ", "")}`)
                     }}
                 >
                     {genres.name}

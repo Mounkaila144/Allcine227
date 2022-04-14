@@ -69,90 +69,90 @@ export default function HeaderPhone() {
             />
         </>}
         search={
-        <>
-            <Box sx={{display: {xs: 'flex', md: 'none'}}}>
-                {auth() ?
-                    <>
-                        <Box sx={{display: {xs: 'flex', md: 'none'},width:150,height:45,marginTop:2}}>
-                            { <img src={Allcine}/>}
-                        </Box>
-                        <Button
-                            variant="contained"
-                            sx={{
-                                my: 2, color: 'white', display: 'block', backgroundColor: pink[900], marginLeft: 3
-                            }}
-                            onClick={() => navigate(`/react/panier`)}
+            <>
+                <Box sx={{display: {xs: 'flex', md: 'none'}}}>
+                    {auth() ?
+                        <>
+                            <Box sx={{display: {xs: 'flex', md: 'none'},width:150,height:45,marginTop:2}}>
+                                { <img src={Allcine}/>}
+                            </Box>
+                            <Button
+                                variant="contained"
+                                sx={{
+                                    my: 2, color: 'white', display: 'block', backgroundColor: pink[900], marginLeft: 3
+                                }}
+                                onClick={() => navigate(`/react/panier`)}
 
-                        >
-                            <ShoppingCartIcon/>
-                        </Button>
-                    </> : <>
-                        <Box sx={{display: {xs: 'flex', md: 'none'},width:130,height:35,marginTop:2}}>
-                            { <img src={Allcine}/>}
-                        </Box>
-                        <Button
-                            variant="contained"
-                            sx={{
-                                my: 2, color: 'white', display: 'block', backgroundColor: pink[900], marginLeft: 2,width:110
-                            }}
-                            onClick={() => navigate(`/react/login `)}
+                            >
+                                <ShoppingCartIcon/>
+                            </Button>
+                        </> : <>
+                            <Box sx={{display: {xs: 'flex', md: 'none'},width:130,height:35,marginTop:2}}>
+                                { <img src={Allcine}/>}
+                            </Box>
+                            <Button
+                                variant="contained"
+                                sx={{
+                                    my: 2, color: 'white', display: 'block', backgroundColor: pink[900], marginLeft: 2,width:110
+                                }}
+                                onClick={() => navigate(`/react/login `)}
 
-                        >
-                            Connexion
-                        </Button>
+                            >
+                                Connexion
+                            </Button>
 
-                    </>
-                }
-            </Box>
-            <Box sx={{display: {xs: 'none', md: 'flex'}}}>
-                {auth() ?
-                    <>
-                        <Button
-                            variant="contained"
-                            sx={{
-                                my: 2, color: 'white', display: 'block', backgroundColor: pink[900], marginLeft: 2
-                            }}
-                            onClick={() => signOut()}
+                        </>
+                    }
+                </Box>
+                <Box sx={{display: {xs: 'none', md: 'flex'}}}>
+                    {auth() ?
+                        <>
+                            <Button
+                                variant="contained"
+                                sx={{
+                                    my: 2, color: 'white', display: 'block', backgroundColor: pink[900], marginLeft: 2
+                                }}
+                                onClick={() => signOut()}
 
-                        >
-                            Deconnecter
-                        </Button>
-                        <Button
-                            variant="contained"
-                            sx={{
-                                my: 2, color: 'white', display: 'block', backgroundColor: pink[900], marginLeft: 2
-                            }}
-                            onClick={() => navigate(`/react/panier`)}
+                            >
+                                Deconnecter
+                            </Button>
+                            <Button
+                                variant="contained"
+                                sx={{
+                                    my: 2, color: 'white', display: 'block', backgroundColor: pink[900], marginLeft: 2
+                                }}
+                                onClick={() => navigate(`/react/panier`)}
 
-                        >
-                            <ShoppingCartIcon/>
-                        </Button>
-                    </> : <>
-                        <Button
-                            variant="contained"
-                            sx={{
-                                my: 2, color: 'white', display: 'block', backgroundColor: pink[900], marginLeft: 2
-                            }}
-                            onClick={register}
+                            >
+                                <ShoppingCartIcon/>
+                            </Button>
+                        </> : <>
+                            <Button
+                                variant="contained"
+                                sx={{
+                                    my: 2, color: 'white', display: 'block', backgroundColor: pink[900], marginLeft: 2
+                                }}
+                                onClick={register}
 
-                        >
-                            Inscription
-                        </Button>
-                        <Button
-                            variant="contained"
-                            sx={{
-                                my: 2, color: 'white', display: 'block', backgroundColor: pink[900], marginLeft: 2
-                            }}
-                            onClick={() => navigate(`/react/login`)}
+                            >
+                                Inscription
+                            </Button>
+                            <Button
+                                variant="contained"
+                                sx={{
+                                    my: 2, color: 'white', display: 'block', backgroundColor: pink[900], marginLeft: 2
+                                }}
+                                onClick={() => navigate(`/react/login`)}
 
-                        >
-                            Connexion
-                        </Button>
+                            >
+                                Connexion
+                            </Button>
 
-                    </>
-                }
-            </Box>
-        </>
+                        </>
+                    }
+                </Box>
+            </>
         }
 
     />);
