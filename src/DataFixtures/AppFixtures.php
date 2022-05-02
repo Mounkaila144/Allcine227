@@ -22,7 +22,7 @@ class AppFixtures extends Fixture
                 ->setQuantiteInitial($faker->numberBetween(10,100))
                 ->setQuantiteRestant($faker->numberBetween(10,100))
                 ->setQuantiteRestant($faker->numberBetween(10,100))
-                ->setImageName("img-20200827-wa0036-6228dc345c657757454691.jpg")
+                ->setImageName("1-626f9c40e86e4320259172.png")
 
             ;
             $manager->persist($article);

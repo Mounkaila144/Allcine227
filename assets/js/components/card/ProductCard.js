@@ -116,7 +116,7 @@ export default function ProductCard({products, type}) {
                             if (auth()) {
                                 navigate( `/serie/${products.id}`)
                             } else {
-                                navigate(`/react/login`)
+                                navigate(`login`)
                             }
                         }}
                     >

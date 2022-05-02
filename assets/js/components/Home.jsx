@@ -49,7 +49,7 @@ export default function Home(props) {
                 <Box sx={{gridArea: 'header'}}>{props.top}</Box>
                 <Box
                     sx={{
-                        bgcolor: grey[900],
+                        bgcolor: grey[100],
                         marginTop:7,
                         gridArea: 'main'
 

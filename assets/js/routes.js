@@ -12,36 +12,37 @@ import Original from "./Page/Materiel/Original";
 import DetailMateriel from "./Page/Materiel/DetailMateriel";
 import Panier from "./Page/Panier";
 import Login from "./Page/Login";
-import { RequireAuth } from 'react-auth-kit'
+import {RequireAuth} from 'react-auth-kit'
 import Menu from "./Page/Menu";
 import GenreSerie from "./Page/Video/Serie/GenreSerie";
-
+import Template from "./Page/Template";
+import TemplateOut from "./Page/TemplateOut";
 
 
 const RouteApp = () => {
     const [token, setToken] = useState([]);
     const k = [
-        {"id": 28,       "name": "Action"},
-        {"id": 12,       "name": "Adventure"},
-        {"id": 16,       "name": "Animation"},
-        {"id": 35,       "name": "Comedy"},
-        {"id": 80,       "name": "Crime"},
-        {"id": 99,       "name": "Documentary"},
-        {"id": 18,       "name": "Drama"},
-        {"id": 10751,    "name": "Family"},
-        {"id": 14,       "name": "Fantasy"},
-        {"id": 36,       "name": "History"},
-        {"id": 27,       "name": "Horror"},
-        {"id": 10402,    "name": "Music"},
-        {"id": 9648,     "name": "Mystery"},
-        {"id": 10749,    "name": "Romance"},
-        {"id": 878,      "name": "ScienceFiction"},
-        {"id": 10770,    "name": "TVMovie"},
-        {"id": 53,       "name": "Thriller"},
-        {"id": 10752,    "name": "War"},
+        {"id": 28, "name": "Action"},
+        {"id": 12, "name": "Adventure"},
+        {"id": 16, "name": "Animation"},
+        {"id": 35, "name": "Comedy"},
+        {"id": 80, "name": "Crime"},
+        {"id": 99, "name": "Documentary"},
+        {"id": 18, "name": "Drama"},
+        {"id": 10751, "name": "Family"},
+        {"id": 14, "name": "Fantasy"},
+        {"id": 36, "name": "History"},
+        {"id": 27, "name": "Horror"},
+        {"id": 10402, "name": "Music"},
+        {"id": 9648, "name": "Mystery"},
+        {"id": 10749, "name": "Romance"},
+        {"id": 878, "name": "ScienceFiction"},
+        {"id": 10770, "name": "TVMovie"},
+        {"id": 53, "name": "Thriller"},
+        {"id": 10752, "name": "War"},
         {"id": 37, "name": "Western"}
     ]
-    const k2=[
+    const k2 = [
         {"id": 10759, "name": "Action&Adventure"},
         {"id": 16, "name": "Animation"},
         {"id": 35, "name": "Comedy"},
@@ -60,24 +61,32 @@ const RouteApp = () => {
         {"id": 37, "name": "Western"}]
     let params = useParams();
     return (
-            <BrowserRouter>
-                <Routes>
-                    <Route path="film" element={<App/>}>
+        <BrowserRouter>
+            <Routes>
+                <Route path="login" element={
+                    <Template
+                        content={<Login token={token} setToken={setToken}/>}
+                    />
+                }/>
+                <Route path={"/*"} element={<App/>}>
+                </Route>
+                    <Route path="film" element={<TemplateOut/>}>
                         <Route path={":id"} element={<Detail types={"movie"}/>}/>
                         <Route path={"genrelist"} element={<GenreFilmIndex/>}/>
                         <Route path={"recherche"} element={<Recherche types={"movie"}/>}/>
-                        <Route path={"popular"}  element={<Film types={"popular"} type={"movie"}/>}/>
+                        <Route path={"popular"} element={<Film types={"popular"} type={"movie"}/>}/>
                         <Route path={"top"} element={<Film types={"top_rated"} type={"movie"}/>}/>
                         <Route path={"new"} element={<Film types={"upcoming"} type={"movie"}/>}/>
                         {
                             k.map((genres) => (
-                                    <Route key={genres.id} path={"genre/"+genres.name.toLowerCase().replace(" ","")}  element={<GenreFilm genre={genres.id} type={"movie"}/>}/>
+                                    <Route key={genres.id} path={"genre/" + genres.name.toLowerCase().replace(" ", "")}
+                                           element={<GenreFilm genre={genres.id} type={"movie"}/>}/>
                                 )
                             )
                         }
                     </Route>
 
-                    <Route path="serie" element={<App/>}>
+                    <Route path="serie" element={<TemplateOut/>}>
                         <Route path={"recherche"} element={<Recherche types={"tv"}/>}/>
                         <Route path={":id"} element={<Detail types={"tv"}/>}/>
                         <Route path={"popular"} element={<Film types={"popular"} type={"tv"}/>}/>
@@ -86,42 +95,28 @@ const RouteApp = () => {
                         <Route path={"genrelist"} element={<GenreSerieIndex/>}/>
                         {
                             k2.map((genres) => (
-                                    <Route key={genres.id} path={"genre/"+genres.name.toLowerCase().replace(" ","")}  element={<GenreFilm type={"tv"} genre={genres.id}/>}/>
+                                    <Route key={genres.id} path={"genre/" + genres.name.toLowerCase().replace(" ", "")}
+                                           element={<GenreFilm type={"tv"} genre={genres.id}/>}/>
                                 )
                             )
                         }
                     </Route>
-                    <Route path="materiel" element={<App/>}>
+                    <Route path="materiel" element={<TemplateOut/>}>
                         <Route path={"original"} element={<Original/>}/>
                         <Route path={":id"} element={<DetailMateriel/>}/>
 
                     </Route>
 
-                    <Route path="react" element={<App/>}>
-                        <Route path="login" element={<Login token={token} setToken={setToken}/>}/>
-                        <Route path="menu" element={<Menu/>}/>
-                        <Route path={"panier"}
-                               element={
-                                   <RequireAuth loginPath={'/react/login'}>
-                                       <Panier token={token} setToken={setToken}/>
-                                   </RequireAuth>
-                               }/>
+                    <Route path="menu" element={<Menu/>}/>
+                    <Route path={"panier"}
+                           element={
+                               <RequireAuth loginPath={'login'}>
+                                   <Panier token={token} setToken={setToken}/>
+                               </RequireAuth>
+                           }/>
 
-
-
-
-
-                        <Route
-                            path="react/*"
-                            element={
-                                <main style={{ padding: "1rem" }}>
-                                    <h1>There's nothing here!</h1>
-                                </main>
-                            }
-                        />
-                    </Route>
-                </Routes>
-            </BrowserRouter>
+            </Routes>
+        </BrowserRouter>
     );
 };
 

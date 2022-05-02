@@ -7,7 +7,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {Backdrop, CircularProgress, ListItem, ListItemIcon, ListItemText} from "@mui/material";
 import PubCard from "../components/card/PubCard";
-import {orange, pink, red} from "@mui/material/colors";
+import {grey, orange, pink, red} from "@mui/material/colors";
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import StarIcon from '@mui/icons-material/Star';
 import CardContent from "@mui/material/CardContent";
@@ -24,10 +24,6 @@ const Item = styled(Paper)(({theme}) => ({
     color: theme.palette.text.secondary,
 }));
 export default function Menu() {
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [product, setProduct] = useState([]);
-    const [pagecount, setpagecount] = useState([]);
 
     return (
         <Grid container spacing={{xs: 1, md: 2}} columns={{xs: 12, sm: 12, md: 12}}>
@@ -36,12 +32,8 @@ export default function Menu() {
                     <Grid container spacing={{xs: 1, md: 1}} columns={{xs: 12, sm: 12, md: 12}} alignContent={"center"}
                           justifyContent={'center'}>
                         <Grid item xs={10} sm={10} md={5}>
-                            <Box component="div"
-                                 sx={{overflow: 'auto', fontSize: 15, marginBottom: 2, color: 'white'}}>
-                                Bienvenue sur Allcine227 ici sera rediger la presentation du Boutique
-                            </Box>
                             <IconButton aria-label="cart">
-                                <MonetizationOnIcon sx={{fontSize: 50, marginTop: -2, color: orange[900]}}/>
+                                <MonetizationOnIcon sx={{fontSize: 50, marginTop: -2, color: pink[500]}}/>
                                 <Box component="div"
                                      sx={{overflow: 'auto', fontSize: 32, marginBottom: 2, color: 'white'}}>
                                     Nos tarifs

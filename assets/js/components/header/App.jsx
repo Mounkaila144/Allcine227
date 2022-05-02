@@ -14,7 +14,6 @@ import Box from "@mui/material/Box";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 
 
-const drawerWidth = 240;
 
 
 export default function HeaderPhone() {
@@ -24,7 +23,7 @@ export default function HeaderPhone() {
     let navigate = useNavigate();
 
     function handleClick() {
-        navigate(`/react/Menu`)
+        navigate(`/Menu`)
         window.location.reload()
     }
 
@@ -81,7 +80,7 @@ export default function HeaderPhone() {
                                 sx={{
                                     my: 2, color: 'white', display: 'block', backgroundColor: pink[900], marginLeft: 3
                                 }}
-                                onClick={() => navigate(`/react/panier`)}
+                                onClick={() => navigate(`/panier`)}
 
                             >
                                 <ShoppingCartIcon/>
@@ -95,7 +94,7 @@ export default function HeaderPhone() {
                                 sx={{
                                     my: 2, color: 'white', display: 'block', backgroundColor: pink[900], marginLeft: 2,width:110
                                 }}
-                                onClick={() => navigate(`/react/login `)}
+                                onClick={() => navigate(`/login `)}
 
                             >
                                 Connexion
@@ -122,7 +121,7 @@ export default function HeaderPhone() {
                                 sx={{
                                     my: 2, color: 'white', display: 'block', backgroundColor: pink[900], marginLeft: 2
                                 }}
-                                onClick={() => navigate(`/react/panier`)}
+                                onClick={() => navigate(`/panier`)}
 
                             >
                                 <ShoppingCartIcon/>
@@ -143,7 +142,7 @@ export default function HeaderPhone() {
                                 sx={{
                                     my: 2, color: 'white', display: 'block', backgroundColor: pink[900], marginLeft: 2
                                 }}
-                                onClick={() => navigate(`/react/login`)}
+                                onClick={() => navigate(`/login`)}
 
                             >
                                 Connexion

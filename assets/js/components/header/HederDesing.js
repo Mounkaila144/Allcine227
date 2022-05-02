@@ -95,11 +95,11 @@ export default function HeaderDesing(props) {
     };
 
     const menu = () => {
-        navigate(`/react/menu `)
+        navigate(`menu `)
         setOpen(false);
     };
     const login = () => {
-        navigate(`/react/login `)
+        navigate(`login `)
         setOpen(false);
     };
 

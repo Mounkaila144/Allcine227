@@ -34,7 +34,6 @@ const theme = createTheme();
 
 
 export default function Login() {
-    const isAuthenticated = useIsAuthenticated()
     let navigate = useNavigate();
     const [aalert,setAlert]=useState(false)
     const [time,setTime]=useState(true)
@@ -55,7 +54,7 @@ export default function Login() {
     const onSubmit = (e) => {
    setC(c+1)
         e.preventDefault()
-        axios.post('https://allcine227.com/api/login_check', formData)
+        axios.post('https://127.0.0.1:8000/api/login_check', formData)
             .then((res) => {
                 console.log(res)
                 if (res.status === 200) {
@@ -68,7 +67,7 @@ export default function Login() {
                         authState: res.config.data
                     }))
                     {
-                        navigate('/react/menu')
+                        navigate('menu')
                     }
                     else {
 
